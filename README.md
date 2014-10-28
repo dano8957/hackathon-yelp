@@ -12,7 +12,7 @@
 
 # Objective 2. Query
 
-* [Question 1](link-to-an-issue)
+* [Question 1](https://github.com/CSCI-4830-002-2014/hackathon-yelp/issues/19)
 * [Question 2](link-to-an-issue)
 
 # Objective 3. Serve
