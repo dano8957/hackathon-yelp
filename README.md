@@ -8,7 +8,7 @@
 
 # Objective 1. Ingest
 
-![image](ScreenObjectvie.png) 
+![image](ScreenObjective1.png) 
 
 # Objective 2. Query
 
