@@ -8,7 +8,7 @@
 
 # Objective 1. Ingest
 
-![screenshot of terminal output of a successful query](ScreenObjectvie.png) 
+![image](ScreenObjectvie.png) 
 
 # Objective 2. Query
 
