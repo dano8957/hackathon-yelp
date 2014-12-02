@@ -16,7 +16,8 @@ app.get('/', function(req, res) {
 
 app.get('/q0/:format', function(req, res){
     var question = "What restaurants in Middleton are good for kids?";
-    var query = {"city":"Middleton", "attributes" : {"Good for Kids" : true}};
+    // var query = {"city":"Middleton", "attributes" : {"Good for Kids" : true}};
+    var query = {"city":"Middleton"};
     var projection = {};
     db.collection('business').find(query, projection).toArray(function(e, items){
         if (req.params['format'] == 'json'){
@@ -74,23 +75,24 @@ app.get('/q2/:format', function(req, res){
 });
 
 
-app.get('/d3/:format', function(req, res){
-    var question = "Which business is most actively reviewed in all of Phoenix?"; // TODO
+app.get('/q3/:format', function(req, res){
+    var question = "What are the businesses with the lowest rating?";
     var query = {'city':'Middleton'}; // TODO
     var projection = {};    // TODO
     var collection = 'business';     // TODO
     console.log(req.params);
     db.collection(collection)  
 	.find(query, projection)
-        .limit(20)  // TODO       
+        .limit(20).sort({'stars':1})  // TODO       
 	.toArray(function(e, items){
         if (req.params['format'] == 'json'){
             res.status(200).send(items);
         }else if (req.params['format'] == 'd3'){
-            res.status(200).render('business', {data: items});
+            res.status(200).render('custom', {data: items});
         }
     });
 });
+
 
 app.listen(3000);
 console.log('app is listening at localhost:3000');

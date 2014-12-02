@@ -2,7 +2,7 @@
 
 * [Ryan Roden](www.github.com/rodenr)
 * [Daniel Nolan](www.github.com/dano8957)
-* [Sam Korn](URL to this member's github account)
+* [Sam Korn](www.github.com/sako0938)
 * [name-of-a-team-member](URL to this member's github account)
 * [name-of-a-team-member](URL to this member's github account)
 
@@ -31,11 +31,13 @@
 # Objective 4. Visualize
 
 ## Sketch
+![Warm up](D3Warmup.png)
+All you need to do is remove the "Good for kids" attribute in order to just show businesses in middleton.
 
-![hand sketch](photo.png?raw=true) 
+![hand sketch](D3Sketch.jpg) 
 
 ## D3 Visualization
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](D3Custom.png)
 
-{{a short explanation of this visualization}}
+This visualization will help users see the worst businesses in Madison, but will help sort out anomaly reviews. Since more reviews negative reviews will indicate that the star rating is more accurate than less reviews.

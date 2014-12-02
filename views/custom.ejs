@@ -37,8 +37,57 @@
         </style>
     </head>
     <body>      
+    <h1> Worst Businesses In Madison </h1>
+    <h2> Bigger Circles Indicate More Reviews </h2>
         <script type="text/javascript">
-            // use business.ejs as the starter code
+            var w = 900;
+            var h = 300;                    
+            var margin = 50;
+           
+            var dataset = <%- JSON.stringify(data) %>;
+            
+            var svg = d3.select("body")          
+                        .append("svg")
+                        .attr("width", w)
+                        .attr("height", h);
+
+            var tip = d3.tip()
+              .attr('class', 'd3-tip')
+              .offset([-10, 0])
+              .html(function(d) {
+                return "<strong>Name:</strong> <span style='color:red'>" + d['name'] + "</span>" +
+                "<br/>" + "<strong>Review Counts:</strong> <span style='color:blue'>" + d['review_count'] + "</span>" + "<br/> <strong>Stars:</strong> <span style='color:yellow'>" + d['stars'] + "</span>";
+              })            
+
+            svg.call(tip);              
+
+            var rScale = d3.scale.linear()
+                .domain([0, d3.max(dataset.map(function(d) {
+                  return d["review_count"];
+                }))])
+                .range([5, 15]);
+ 
+            var xScale = d3.scale.linear()
+                .domain([0, dataset.length])
+                .range([2*margin, w - 2*margin]);                         
+ 
+            var g = svg.selectAll("g")
+              .data(dataset)
+              .enter()
+              .append("g")               
+              .attr("transform", function(d){
+                    return "translate(" + xScale( dataset.indexOf(d) )
+                         + "," + 2*margin + ")"; 
+              })
+              .on('mouseover', tip.show)
+              .on('mouseout', tip.hide)
+
+
+            g.append("circle")
+             .attr("r", function(d) { return rScale( d["review_count"] ) } )
+             .attr("cx",0)
+             .attr("cy",0)
+             .attr("fill","red")
 
         </script>
     </body>
