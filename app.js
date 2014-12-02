@@ -1,10 +1,10 @@
 var express = require('express');
 var mongoskin = require('mongoskin');
 
-var username = '' // TODO
-var password = '' // TODO
-var url = '' // TODO
-var db = mongoskin.db('mongodb://'+username+':'+password+'@'+url+':39960/yelp', {safe:true})
+var username = 'ianks' // TODO
+var password = 'test' // TODO
+var url = 'ds049130.mongolab.com' // TODO
+var db = mongoskin.db('mongodb://'+username+':'+password+'@'+url+':49130/yelp', {safe:true})
 var app = express();
 
 // view engine setup
@@ -34,9 +34,9 @@ app.get('/q0/:format', function(req, res){
 
 
 app.get('/q1/:format', function(req, res){
-    var question = "Question?"; // TODO
-    var query = {}; // TODO
-    var projection = {};    // TODO
+    var question = "What is the average time places are open?"; // TODO
+    var query = {'city':'Madison'}; // TODO
+    var projection = {'_id':0,'name':1,'hours':1}; // TODO
     var collection = 'business';     // TODO
     db.collection(collection)  
         .find(query, projection)
@@ -45,22 +45,22 @@ app.get('/q1/:format', function(req, res){
         if (req.params['format'] == 'json'){
             res.status(200).send(items);
         }else if (req.params['format'] == 'html'){
-            var answer = items.map(function(d){
-                return d['name'];   // TODO
-            }).join(" and ");   // TODO
+            var answer = "09:03 through direct calculation";   // TODO
+            
             res.status(200).render('answer', {question: question, answer: answer});
         }
     });
 });
 
 app.get('/q2/:format', function(req, res){
-    var question = "Question?"; // TODO
-    var query = {}; // TODO
-    var projection = {};    // TODO
+    var question = "What is the most reviewed and highest starred restaurant in Madison, WI?"; // TODO
+    var query = { 'city':'Madison','categories':'Restaurants','stars':5}; // TODO
+    var projection = {'_id':0,'name':1,'stars':1,'review_count':1};
     var collection = 'business';     // TODO
     db.collection(collection)  
         .find(query, projection)
-        .limit(10)  // TODO
+	.sort({'stars':-1,'review_count':-1})        
+	.limit(1)  // TODO
         .toArray(function(e, items){
         if (req.params['format'] == 'json'){
             res.status(200).send(items);
@@ -75,19 +75,19 @@ app.get('/q2/:format', function(req, res){
 
 
 app.get('/d3/:format', function(req, res){
-    var question = "Question?"; // TODO
-    var query = {}; // TODO
+    var question = "Which business is most actively reviewed in all of Phoenix?"; // TODO
+    var query = {'city':'Middleton'}; // TODO
     var projection = {};    // TODO
     var collection = 'business';     // TODO
     console.log(req.params);
     db.collection(collection)  
-        .find(query, projection)
-        .limit(10)  // TODO
-        .toArray(function(e, items){
+	.find(query, projection)
+        .limit(20)  // TODO       
+	.toArray(function(e, items){
         if (req.params['format'] == 'json'){
             res.status(200).send(items);
         }else if (req.params['format'] == 'd3'){
-            res.status(200).render('custom', {data: items});
+            res.status(200).render('business', {data: items});
         }
     });
 });
