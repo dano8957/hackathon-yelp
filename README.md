@@ -21,12 +21,13 @@
 ## Question 1
 
 ![q1](http://i.imgur.com/xHDySrk.png)
+![answer](http://i.imgur.com/MJ6ebWH.png)
 
 
 ## Question 2
 
 ![q2](http://i.imgur.com/3Tk1EId.png) 
-
+![answer](http://i.imgur.com/nTB4xUY.png)
 # Objective 4. Visualize
 
 ## Sketch
