@@ -30,9 +30,11 @@
 ![answer](http://i.imgur.com/nTB4xUY.png)
 # Objective 4. Visualize
 
-## Sketch
+## Warm-Up
 ![Warm up](D3Warmup.png)
 All you need to do is remove the "Good for kids" attribute in order to just show businesses in middleton.
+
+## Sketch
 
 ![hand sketch](D3Sketch.jpg) 
 
