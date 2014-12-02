@@ -16,15 +16,16 @@
 * [Question 2](link-to-an-issue)
 
 # Objective 3. Serve
-
+![q0](http://i.imgur.com/NZ1o0I4.png)
+![screenshot](http://i.imgur.com/JMVXJNV.png)
 ## Question 1
 
-![q1](screenshot.png?raw=true)
+![q1](http://i.imgur.com/xHDySrk.png)
 
 
 ## Question 2
 
-![q2](screenshot.png?raw=true) 
+![q2](http://i.imgur.com/3Tk1EId.png) 
 
 # Objective 4. Visualize
 
